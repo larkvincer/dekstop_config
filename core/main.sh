@@ -18,7 +18,9 @@ readonly BASE_DIR=`cd $(dirname "${BASH_SOURCE[0]}") && cd .. && pwd`
 readonly CORE_BASE_DIR=`cd $(dirname "${BASH_SOURCE[0]}") && && pwd`
 
 # File for errors
-readonly ERROR_FILE="error"
+readonly ERROR_FILE="errors"
+# Clean up file or create new
+echo `date` > $ERROR_FILE
 
 #Script should be run under root user
 
@@ -65,6 +67,7 @@ do
 		continue
 	fi
 
+	echo "\n>>Processing $item item<<"
 	# Run script file if excist
 	# Script should be level up of core scripts
 	script="$BASE_DIR/$item.sh"
@@ -72,13 +75,17 @@ do
 		echo "*****Running $script*****"
 		sh $script
 		if [[ "$?" -ne 0 ]]; then
-			"$script - error" >> $ERROR_FILE
+			echo "$script - error" >> $ERROR_FILE
+			echo "ERROR"
 		fi
 		continue
-	elif [[ -z `apt install $item | grep 'E: Unable'` ]]; then
+	elif [[ -z "(apt install $item | grep 'E: Unable')" ]]; then
 		echo "--------Successfuly install $item with apt--------"
+		echo "ERROR"
 	else
-		"cannot install $item - error" >> $ERROR_FILE
+		echo "cannot install $item - error" >> $ERROR_FILE
+		echo "ERROR"
 	fi
+	echo "\n>>Processing $item item completed<<"
 
 done < $1
