@@ -45,18 +45,17 @@ fi
 
 while read -r item
 do
-	# Skip sign whick indicates the start of list
-	if [ "$item" = "\{" ]; then
-		continue
-	fi
-
+	echo $item
 	# Reach the end of list, so break
-	if [ "$item" = "\}" ]; then
+	if [ "$item" = \} ]; then
+		echo "breaking"
 		break
 	fi
 
-	if [[ $item =~ ^\#*$ ]]
-	then
-		echo "commented"
+	# Skip sign whick indicates the start of list
+	# or it was commented
+	if [[ "$item" = \{ || ${item:0:1} == \# ]]; then
+		echo "skipping $item"
+		continue
 	fi
 done < $1
