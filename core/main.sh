@@ -6,12 +6,12 @@
 
 
 # Root id
-ROOT_UID=0
+readonly ROOT_UID=0
 
 # Exit status
-E_NOTROOT=67
-E_BADARGS=85
-E_BADFILE=81
+readonly E_NOTROOT=67
+readonly E_BADARGS=85
+readonly E_BADFILE=81
 
 #Script should be run under root user
 
@@ -39,3 +39,24 @@ then
 	echo "Specifed file does not excist!"
 	exit $E_BADFILE
 fi
+
+
+# Iterate through list and execute commands
+
+while read -r item
+do
+	# Skip sign whick indicates the start of list
+	if [ "$item" = "\{" ]; then
+		continue
+	fi
+
+	# Reach the end of list, so break
+	if [ "$item" = "\}" ]; then
+		break
+	fi
+
+	if [[ $item =~ ^\#*$ ]]
+	then
+		echo "commented"
+	fi
+done < $1
