@@ -13,6 +13,13 @@ readonly E_NOTROOT=67
 readonly E_BADARGS=85
 readonly E_BADFILE=81
 
+# Script's base directory name
+readonly BASE_DIR=`cd $(dirname "${BASH_SOURCE[0]}") && cd .. && pwd`
+readonly CORE_BASE_DIR=`cd $(dirname "${BASH_SOURCE[0]}") && && pwd`
+
+# File for errors
+readonly ERROR_FILE="error"
+
 #Script should be run under root user
 
 if [ "$UID" -ne "$ROOT_UID" ]; then
@@ -45,7 +52,6 @@ fi
 
 while read -r item
 do
-	echo $item
 	# Reach the end of list, so break
 	if [ "$item" = \} ]; then
 		echo "breaking"
@@ -58,4 +64,21 @@ do
 		echo "skipping $item"
 		continue
 	fi
+
+	# Run script file if excist
+	# Script should be level up of core scripts
+	script="$BASE_DIR/$item.sh"
+	if [[ -f $script ]]; then
+		echo "*****Running $script*****"
+		sh $script
+		if [[ "$?" -ne 0 ]]; then
+			"$script - error" >> $ERROR_FILE
+		fi
+		continue
+	elif [[ -z `apt install $item | grep 'E: Unable'` ]]; then
+		echo "--------Successfuly install $item with apt--------"
+	else
+		"cannot install $item - error" >> $ERROR_FILE
+	fi
+
 done < $1
