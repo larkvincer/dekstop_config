@@ -18,13 +18,14 @@ function root_checker() {
 
 # Download package in specified folder.
 # After downloading stays in download folder
-# @param:$1 - source url, $2 - destination folder, [$3 - header]
+# @param:$1 - source url, $2 - $package name,
+# $3 - destination folder, [$4 - header]
 function download_package() {
 	# Invalid number of arguments
 	echo "***Downloading package***"
-	if [[ $# < 2 ]]; then
+	if [[ $# < 3 ]]; then
 		echo "Illegal number of arguments"
-		echo "Usage download_package source_url destination folder [header]"
+		echo "Usage download_package source_url package_name destination folder [header]"
 		exit 1
 	fi
 
@@ -35,9 +36,29 @@ function download_package() {
 	fi
 	
 	# Move to the destination folder
-	cd $2
-	wget -c --no-check-certificate --no-cookies --header ${3-""} "${1}"
+	cd $2 wget -O $2 -c --no-check-certificate --no-cookies --header ${3-""} "${1}"
 	echo "***Download completed***"
 }
 
-download_package 234 "/home/larkvincer/Downloads"
+# Unpacke package and delete archive
+# @param: $1 - package name $2 - folder contains package
+# $3 - variable for storing folder name
+function unpack_package() {
+	echo "***Unpacking package***"
+	if [[ $# < 3 ]]; then
+		echo "Illegal number of arguments"
+		echo "Usage upack_package package_name folder_contains var_for_name_storing"
+		exit 1
+	fi
+
+	# Bad path
+	if [[ ! -e "$2/$1" ]]; then
+		echo "Invalid file path: $2/$1"
+		exit 1
+	fi
+
+	cd $2
+	DIR_NAME=`tar -tzf ${SRC} | head -1 | cut -f 1 -d "/"`
+
+	echo "***Unpacking completed***"
+}
