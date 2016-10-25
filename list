@@ -1,0 +1,31 @@
+{
+	#java
+	#clion
+	#eclipse
+	#chrome
+	#sublime
+	#telegram
+	#evince
+	#thunar
+	#sakura
+	#dropbox
+	#libreoffice
+	#gimp
+	#gedit
+	vim
+	#vim-config
+	#nitrogen
+	#tint2
+	#mysql
+	#mysql-workbench-community
+}
+
+# Specify name for software you need to install.
+# ({ - indicates start of the list, } - end of list).
+# Use "#" for preventing item to be executed (#vim will be skiped).
+#
+# Main script will try to find bash script with the same name
+# If certain bash script will be unfind, main script will try to install
+# software through the standart set of Ubuntu repo; If it cannot 
+# find package in standart repo, the error message will be insert
+# into ./core/error file;
