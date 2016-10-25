@@ -37,7 +37,7 @@ function download_package() {
 	
 	# Move to the destination folder
 	cd $3
-	wget -O $2 -c --no-check-certificate --no-cookies --header ${3-""} "${1}"
+	wget -O $2 -c --no-check-certificate --no-cookies --header "$4" "${1}"
 	echo "***Download completed***"
 }
 
@@ -58,8 +58,13 @@ function unpack_package() {
 		exit 1
 	fi
 
+	# Extract files and get folder name
 	cd $2
-	DIR_NAME=`tar -tzf ${SRC} | head -1 | cut -f 1 -d "/"`
+	#DIR_NAME=`tar -xvf ${SRC} | head -n 1 | cut -f 1 -d "/"`
+	eval "$3=`tar -xvf ${1} | head -n 1 | cut -f 1 -d "/"`"
+
+	# Remove archive
+	rm -f $1
 
 	echo "***Unpacking completed***"
 }
