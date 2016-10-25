@@ -30,13 +30,14 @@ function download_package() {
 	fi
 
 	# Bad destination path
-	if [[ ! -e $2 && ! -d $2 ]]; then
+	if [[ ! -e $3 && ! -d $3 ]]; then
 		echo "Invalid destination folder"
 		exit 1
 	fi
 	
 	# Move to the destination folder
-	cd $2 wget -O $2 -c --no-check-certificate --no-cookies --header ${3-""} "${1}"
+	cd $3
+	wget -O $2 -c --no-check-certificate --no-cookies --header ${3-""} "${1}"
 	echo "***Download completed***"
 }
 
