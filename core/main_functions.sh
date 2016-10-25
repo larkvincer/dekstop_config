@@ -8,7 +8,7 @@
 readonly ROOT_UID=0
 
 # Make sure script runs by root user
-function root_checker() {
+function check_root() {
 	if [ "$UID" -ne "$ROOT_UID" ]
 	then
 		echo "This script must be run as root"2>&1
