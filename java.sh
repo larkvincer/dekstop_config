@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo ">>Java installation started<<"
 
 # Include buch of helpful functions
@@ -28,3 +29,4 @@ echo "export JAVA_HOME=/opt/$DIR_NAME" >> "$PATH_FILE"
 echo "export PATH=$PATH:$JAVA_HOME" >> "$PATH_FILE"
 
 echo ">>Java was seccessfuly installed<<"
+echo

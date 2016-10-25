@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo ">>Telegram installation started<<"
 
 # Include bash script with custom functions
@@ -23,3 +24,4 @@ cd "$DIR_NAME"
 ./Telegram
 
 echo ">>Telegram installation completed<<"
+echo

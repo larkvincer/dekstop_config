@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo ">>Chrome installation started<<"
 
 # Include bash script with custom functions
@@ -25,3 +26,4 @@ dpkg -i "$PACKAGE_NAME"
 rm -f "$PACKAGE_NAME"
 
 echo ">>Chrome installation completed<<"
+echo

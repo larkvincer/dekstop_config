@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo ">>Sublime text editor installation<<"
 
 # Include bash script with custom functions
@@ -25,3 +26,4 @@ rm -f "$PACKAGE_NAME"
 download_package "https://packagecontrol.io/Package%20Control.sublime-package" "Package Control.sublime-package" "$HOME/.config/sublime-text-3"
 
 echo ">>Sublime installation completed<<"
+echo
