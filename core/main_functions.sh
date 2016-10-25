@@ -43,12 +43,11 @@ function download_package() {
 
 # Unpacke package and delete archive
 # @param: $1 - package name $2 - folder contains package
-# $3 - variable for storing folder name
 function unpack_package() {
 	echo "***Unpacking package***"
-	if [[ $# < 3 ]]; then
+	if [[ $# < 2 ]]; then
 		echo "Illegal number of arguments"
-		echo "Usage upack_package package_name folder_contains var_for_name_storing"
+		echo "Usage unpack_package package_name folder_contains"
 		exit 1
 	fi
 
@@ -60,8 +59,7 @@ function unpack_package() {
 
 	# Extract files and get folder name
 	cd $2
-	#DIR_NAME=`tar -xvf ${SRC} | head -n 1 | cut -f 1 -d "/"`
-	eval "$3=`tar -xvf ${1} | head -n 1 | cut -f 1 -d "/"`"
+	DIR_NAME=`tar -xvf ${SRC} | head -n 1 | cut -f 1 -d "/"`
 
 	# Remove archive
 	rm -f $1
