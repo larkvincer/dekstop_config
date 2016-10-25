@@ -59,7 +59,7 @@ function unpack_package() {
 
 	# Extract files and get folder name
 	cd $2
-	DIR_NAME=`tar -xvf ${SRC} | head -n 1 | cut -f 1 -d "/"`
+	DIR_NAME=`tar -xvf ${1} | head -n 1 | cut -f 1 -d "/"`
 
 	# Remove archive
 	rm -f $1
