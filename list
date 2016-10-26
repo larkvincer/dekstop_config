@@ -1,23 +1,23 @@
 {
-	java
+	#java
 	#clion
 	#eclipse
-	chrome
-	sublime
+	#chrome
+	#sublime
 	telegram
 	#evince
 	#thunar
 	#sakura
-	dropbox
+	#dropbox
 	#libreoffice
 	#gimp
 	#gedit
-	vim
-	vim-config
+	#vim
+	#vim-config
 	#nitrogen
 	#tint2
 	mysql-server
-	mysql-workbench-community
+	#mysql-workbench
 }
 
 # Specify name for software you need to install.

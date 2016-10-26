@@ -14,7 +14,7 @@ readonly DWN_FOLDER="$HOME"
 readonly DWN_PACKAGE="db.tar.gz"
 
 #Downloading package
-#download_package "$DWN_URL" "$DWN_PACKAGE" "$DWN_FOLDER"
+download_package "$DWN_URL" "$DWN_PACKAGE" "$DWN_FOLDER"
 
 # Extract archive
 unpack_package "$DWN_PACKAGE" "$DWN_FOLDER"

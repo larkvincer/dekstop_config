@@ -60,7 +60,7 @@ function unpack_package() {
 	# Extract files and get folder name
 	cd $2
 	
-	output="$(tar -xvzf $1)"
+	output="$(tar -xvf $1)"
 	DIR_NAME=$(echo $output | head -n 1 | cut -f 1 -d '/')
 	
 	# Remove archive

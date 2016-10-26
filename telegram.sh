@@ -20,7 +20,7 @@ download_package "$DWN_URL" "$PACKAGE_NAME" "$DWN_FOLDER"
 unpack_package "$PACKAGE_NAME" "$DWN_FOLDER"
 
 # Launch Telegram 
-cd "$DIR_NAME"
+cd "./$DIR_NAME"
 ./Telegram
 
 echo ">>Telegram installation completed<<"
