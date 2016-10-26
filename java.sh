@@ -26,7 +26,7 @@ unpack_package "$DWN_PACKAGE" "$DWN_FOLDER"
 
 # File for setting path
 echo "export JAVA_HOME=/opt/$DIR_NAME" >> "$PATH_FILE"
-echo "export PATH=$PATH:$JAVA_HOME" >> "$PATH_FILE"
+echo 'export PATH=$PATH:$JAVA_HOME' >> "$PATH_FILE"
 
 echo ">>Java was seccessfuly installed<<"
 echo
