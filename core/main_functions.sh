@@ -6,7 +6,6 @@
 
 #Only user with uid=0 have root privileges
 readonly ROOT_UID=0
-
 # Make sure script runs by root user
 function check_root() {
 	if [ "$UID" -ne "$ROOT_UID" ]
@@ -44,8 +43,7 @@ function download_package() {
 # Unpacke package and delete archive
 # @param: $1 - package name $2 - folder contains package
 function unpack_package() {
-	echo "***Unpacking package***"
-	if [[ $# < 2 ]]; then
+	echo "***Unpacking package***" if [[ $# < 2 ]]; then
 		echo "Illegal number of arguments"
 		echo "Usage unpack_package package_name folder_contains"
 		exit 1
@@ -59,7 +57,6 @@ function unpack_package() {
 
 	# Extract files and get folder name
 	cd $2
-	
 	output="$(tar -xvf $1)"
 	DIR_NAME=$(echo $output | head -n 1 | cut -f 1 -d '/')
 	
