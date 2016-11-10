@@ -1,4 +1,4 @@
-#!/bin/bash
+j#!/bin/bash
 
 # Script reads ../list file and executes commands
 # to install specified software. Also it creates
@@ -65,7 +65,7 @@ do
 			echo "!!!Error occured, check error file!!!"
 		fi
 		continue
-	elif [[ -z "$(apt install $item 2>&1 | tail -n 1 | grep 'E: Unable')" ]]; then
+	elif [[ -z "$(sudo apt install $item 2>&1 | tail -n 1 | grep 'E: Unable')" ]]; then
 		echo "--------Successfuly install $item with apt--------"
 	else
 		echo "cannot install $item - error" >> $ERROR_FILE
