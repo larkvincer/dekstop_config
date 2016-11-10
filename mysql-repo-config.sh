@@ -8,7 +8,7 @@ echo "--Mysql-server installation started--"
 source ./core/main_functions.sh
 
 readonly DWN_URL="http://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb"
-readonly DWN_FOLDER="$HOME/Desktop"
+readonly DWN_FOLDER="$HOME"
 readonly PACKAGE_NAME="mysql-apt-config.deb"
 
 # Download archive

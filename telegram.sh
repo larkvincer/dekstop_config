@@ -8,7 +8,7 @@ source ./core/main_functions.sh
 
 readonly DWN_URL="https://tdesktop.com/linux"
 readonly DWN_FOLDER="$HOME"
-readonly INST_FOLDER="$HOME/Desktop"
+readonly INST_FOLDER="$HOME"
 readonly PACKAGE_NAME="telegram.tar.xz"
 
 # Download archive

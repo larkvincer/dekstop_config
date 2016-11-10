@@ -7,7 +7,7 @@ echo "--Sublime text editor installation--"
 source ./core/main_functions.sh
 
 readonly DWN_URL="https://download.sublimetext.com/sublime-text_build-3126_amd64.deb"
-readonly DWN_FOLDER="$HOME/Desktop"
+readonly DWN_FOLDER="$HOME"
 readonly PACKAGE_NAME="sublime.deb"
 
 # Download archive
