@@ -1,13 +1,10 @@
 #!/bin/bash
 
 echo
-echo ">>Chrome installation started<<"
+echo "--Chrome installation started--"
 
 # Include bash script with custom functions
 source ./core/main_functions.sh
-
-# Check wether script run under root
-check_root
 
 readonly DWN_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 readonly DWN_FOLDER="/home/larkvincer/Desktop"
@@ -20,10 +17,10 @@ cd "$DWN_FOLDER"
 download_package "$DWN_URL" "$PACKAGE_NAME" "$DWN_FOLDER"
 
 # Install dpkg package
-dpkg -i "$PACKAGE_NAME"
+sudo dpkg -i "$PACKAGE_NAME"
 
 # Remove deb package
 rm -f "$PACKAGE_NAME"
 
-echo ">>Chrome installation completed<<"
+echo "--Chrome installation completed--"
 echo

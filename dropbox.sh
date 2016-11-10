@@ -1,13 +1,10 @@
 #!/bin/bash
 
 echo
-echo ">>dropbox installation started<<"
+echo "--dropbox installation started--"
 
 # Include buch of helpful functions
 source ./core/main_functions.sh
-
-# Only root can run this script
-check_root
 
 readonly DWN_URL="https://www.dropbox.com/download?plat=lnx.x86_64"
 readonly DWN_FOLDER="$HOME"
@@ -19,10 +16,9 @@ download_package "$DWN_URL" "$DWN_PACKAGE" "$DWN_FOLDER"
 # Extract archive
 unpack_package "$DWN_PACKAGE" "$DWN_FOLDER"
 
-echo $DIR_NAME
 cd $DIR_NAME
 ./dropboxd
 
 
-echo ">>dropbox was seccessfuly installed<<"
+echo "--dropbox was seccessfuly installed--"
 echo

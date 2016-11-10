@@ -1,23 +1,16 @@
 {
 	#java
-	#clion
-	#eclipse
-	#chrome
-	#sublime
-	telegram
-	#evince
-	#thunar
-	#sakura
+	#sublime-text-3
+	#telegram
 	#dropbox
 	#libreoffice
+	#git
 	#gimp
-	#gedit
 	#vim
 	#vim-config
-	#nitrogen
-	#tint2
-	mysql-server
+	#mysql-server
 	#mysql-workbench
+	#albert
 }
 
 # Specify name for software you need to install.
