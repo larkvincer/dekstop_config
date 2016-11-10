@@ -43,7 +43,8 @@ function download_package() {
 # Unpacke package and delete archive
 # @param: $1 - package name $2 - folder contains package
 function unpack_package() {
-	echo "***Unpacking package***" if [[ $# < 2 ]]; then
+	echo "***Unpacking package***"
+	if [[ $# < 2 ]]; then
 		echo "Illegal number of arguments"
 		echo "Usage unpack_package package_name folder_contains"
 		exit 1

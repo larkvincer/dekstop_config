@@ -45,7 +45,7 @@ do
 		break
 	fi
 
-	# Skip sign whick indicates the start of list
+	# Skip sign which indicates the start of list
 	# or it was commented
 	if [[ "$item" = \{ || ${item:0:1} == \# ]]; then
 		echo "skipping $item"
@@ -53,7 +53,7 @@ do
 	fi
 
 	echo
-	echo ">>Processing $item item<<"
+	echo "--------Processing $item item--------"
 	# Run script file if excist
 	# Script should be level up of core scripts
 	script="$BASE_DIR/$item.sh"
@@ -62,15 +62,15 @@ do
 		bash $script
 		if [[ "$?" -ne 0 ]]; then
 			echo "$script - error" >> $ERROR_FILE
-			echo "ERROR"
+			echo "!!!Error occured, check error file!!!"
 		fi
 		continue
 	elif [[ -z "$(apt install $item 2>&1 | tail -n 1 | grep 'E: Unable')" ]]; then
 		echo "--------Successfuly install $item with apt--------"
 	else
 		echo "cannot install $item - error" >> $ERROR_FILE
-		echo "ERROR"
+		echo "!!!Some error occured during installation. Check error file!!!"
 	fi
-	echo ">>Processing $item item completed<<"
+	echo "-------Processing $item item completed-------"
 	echo
 done < $1
