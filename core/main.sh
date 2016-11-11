@@ -57,7 +57,7 @@ do
 	# Run script file if excist
 	# Script should be level up of core scripts
 	script="$BASE_DIR/$item.sh"
-	if [[ -f $script ]]; then
+	if [[ -f "$script" ]]; then
 		echo "*****Running $script*****"
 		bash $script
 		if [[ "$?" -ne 0 ]]; then
@@ -72,15 +72,10 @@ do
 		sudo apt install --assume-yes $item
 		echo "--------Successfuly install $item with apt--------"
 	else
-	#	echo "!!!Some error occured during installation. Check error file!!!"
+		echo "Canno install $item"
 		echo "cannot install $item - error" >> $ERROR_FILE
 	fi
-	#elif [[ -z "$(sudo apt install $item 2>&1 | grep 'E: Unable')" ]]; then
-	#	echo "--------Successfuly install $item with apt--------"
-	#else
-	#	echo "cannot install $item - error" >> $ERROR_FILE
-	#	echo "!!!Some error occured during installation. Check error file!!!"
-	#fi
+
 	echo "-------Processing $item item completed-------"
 	echo
 done < $1
