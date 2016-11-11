@@ -19,6 +19,9 @@ download_package "$DWN_URL" "$PACKAGE_NAME" "$DWN_FOLDER"
 # Install dpkg package
 sudo dpkg -i "$PACKAGE_NAME"
 
+# Install dependencies
+sudo apt install -f
+
 # Remove deb package
 rm -f "$PACKAGE_NAME"
 
